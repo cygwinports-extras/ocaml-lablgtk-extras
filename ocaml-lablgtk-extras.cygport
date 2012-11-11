@@ -1,0 +1,20 @@
+inherit ocaml
+
+NAME="ocaml-lablgtk-extras"
+VERSION=1.1
+RELEASE=1
+CATEGORY="OCaml"
+SUMMARY="Additional LablGtk2 modules"
+DESCRIPTION="Lablgtk-extras is a collection of libraries and modules useful
+when developing OCaml/LablGtk2 applications, formerly part of Cameleon2."
+HOMEPAGE="http://gtk-extras.forge.ocamlcore.org/"
+SRC_URI="https://forge.ocamlcore.org/frs/download.php/848/lablgtkextras-${PV}.tar.gz"
+SRC_DIR="lablgtkextras-${VERSION}"
+PATCH_URI="1.1-lablgtk216.patch"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygconf
+	cygmake -j1
+}

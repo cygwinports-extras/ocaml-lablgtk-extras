@@ -1,0 +1,36 @@
+From: Maxence Guesdon <maxence.guesdon@inria.fr>
+Date: Mon, 15 Oct 2012 18:59:30 +0000 (+0200)
+Subject: handle new modifiers
+X-Git-Url: https://forge.ocamlcore.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=gtk-extras%2Fgtk-extras.git;a=commitdiff_plain;h=d6fde9be5dc791f4867eb36b614761dd8624841a
+
+handle new modifiers
+---
+
+diff --git a/src/okey.ml b/src/okey.ml
+index ab3f8d2..5d0ea41 100644
+--- a/src/okey.ml
++++ b/src/okey.ml
+@@ -48,6 +48,10 @@ let int_of_modifier = function
+   | `BUTTON3 -> 1024
+   | `BUTTON4 -> 2048
+   | `BUTTON5 -> 4096
++  | `HYPER -> 8192
++  | `META -> 16384
++  | `RELEASE -> 32768
++  | `SUPER -> 655536
+ 
+ let print_modifier l =
+   List.iter
+@@ -66,7 +70,11 @@ let print_modifier l =
+ 	  | `BUTTON2 -> "B2"
+ 	  | `BUTTON3 -> "B3"
+ 	  | `BUTTON4 -> "B4"
+-	  | `BUTTON5 -> "B5")
++	  | `BUTTON5 -> "B5"
++	  | `HYPER -> "HYPER"
++	  | `META -> "META"
++	  | `RELEASE -> "RELEASE"
++	  | `SUPER -> "SUPER")
+ 	    m)^" ")
+     )
+     l;
