@@ -1,0 +1,28 @@
+With ocaml-base 4.01.00-1.x86_64:
+Cannot load required shared library dllunix.
+Reason: dllunix.so: dynamic loading not supported on this platform.
+
+--- origsrc/lablgtkextras-1.4/configure	2013-10-15 02:08:23.000000000 -0500
++++ src/lablgtkextras-1.4/configure	2013-10-29 02:34:23.021665600 -0500
+@@ -1731,7 +1731,8 @@ OCAMLMKLIB="ocamlmklib"
+ MENHIR="menhir"
+ ' > ./ocaml_config.sh
+ else
+-  ocaml unix.cma str.cma checkocaml.ml ocaml_config.sh || exit 1
++  ocamlc -o checkocaml unix.cma str.cma checkocaml.ml || exit 1
++  ./checkocaml ocaml_config.sh || exit 1
+ fi
+ rm -f foo.os foo.os2
+ . ./ocaml_config.sh
+--- origsrc/lablgtkextras-1.4/configure.ac	2013-10-15 02:08:23.000000000 -0500
++++ src/lablgtkextras-1.4/configure.ac	2013-10-29 02:33:38.025092000 -0500
+@@ -63,7 +63,8 @@ OCAMLMKLIB="ocamlmklib"
+ MENHIR="menhir"
+ ' > ./ocaml_config.sh
+ else
+-  ocaml unix.cma str.cma checkocaml.ml ocaml_config.sh || exit 1
++  ocamlc -o checkocaml unix.cma str.cma checkocaml.ml || exit 1
++  ./checkocaml ocaml_config.sh || exit 1
+ fi
+ rm -f foo.os foo.os2
+ . ./ocaml_config.sh
