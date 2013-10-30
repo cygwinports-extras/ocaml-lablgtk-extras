@@ -3,7 +3,7 @@ inherit ocaml
 NAME="ocaml-lablgtk-extras"
 VERSION=1.4
 RELEASE=1
-CATEGORY="OCaml"
+CATEGORY="Libs"
 SUMMARY="Additional LablGtk2 modules"
 DESCRIPTION="Lablgtk-extras is a collection of libraries and modules useful
 when developing OCaml/LablGtk2 applications, formerly part of Cameleon2."
